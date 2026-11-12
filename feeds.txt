@@ -2,9 +2,17 @@
 https://huggingface.co/blog/feed.xml
 https://openai.com/news/rss.xml
 https://blog.google/technology/ai/rss/
+https://developers.googleblog.com/feeds/posts/default
+https://aws.amazon.com/blogs/machine-learning/feed/
+https://blogs.nvidia.com/feed/
 https://techcrunch.com/category/artificial-intelligence/feed/
+https://venturebeat.com/category/ai/feed/
+https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
 https://www.technologyreview.com/feed/
 https://feeds.arstechnica.com/arstechnica/index
+https://simonwillison.net/atom/everything/
+https://www.latent.space/feed
+https://importai.substack.com/feed
 https://hnrss.org/frontpage?points=150
 https://github.blog/feed/
 
@@ -12,19 +20,30 @@ https://github.blog/feed/
 https://feeds.bbci.co.uk/news/business/rss.xml
 https://www.cnbc.com/id/100003114/device/rss/rss.html
 https://feeds.content.dowjones.io/public/rss/mw_topstories
+https://feeds.a.dj.com/rss/RSSMarketsMain.xml
 https://www.federalreserve.gov/feeds/press_all.xml
 https://www.ecb.europa.eu/rss/press.html
+https://www.bls.gov/feed/bls_latest.rss
+https://www.investing.com/rss/news.rss
 https://cointelegraph.com/rss
+https://www.coindesk.com/arc/outboundfeeds/rss/
 https://www.ansa.it/sito/notizie/economia/economia_rss.xml
 
 [POLITICA & GEOPOLITICA]
 https://feeds.bbci.co.uk/news/world/rss.xml
 https://www.aljazeera.com/xml/rss/all.xml
 https://www.politico.eu/feed/
+https://www.euractiv.com/feed/
+https://thediplomat.com/feed/
+https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml
 
 [SCIENZA & INNOVAZIONE]
 https://www.quantamagazine.org/feed/
+https://www.science.org/rss/news_current.xml
+https://www.nature.com/nature.rss
+https://www.newscientist.com/feed/home/
 https://www.sciencedaily.com/rss/top/science.xml
 https://phys.org/rss-feed/
+https://arstechnica.com/science/feed/
 https://spacenews.com/feed/
-https://www.nature.com/nature.rss
+https://thequantuminsider.com/feed/
