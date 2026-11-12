@@ -1,0 +1,30 @@
+[INTELLIGENZA ARTIFICIALE & TECNOLOGIA]
+https://huggingface.co/blog/feed.xml
+https://openai.com/news/rss.xml
+https://blog.google/technology/ai/rss/
+https://techcrunch.com/category/artificial-intelligence/feed/
+https://www.technologyreview.com/feed/
+https://feeds.arstechnica.com/arstechnica/index
+https://hnrss.org/frontpage?points=150
+https://github.blog/feed/
+
+[ECONOMIA & INVESTIMENTI]
+https://feeds.bbci.co.uk/news/business/rss.xml
+https://www.cnbc.com/id/100003114/device/rss/rss.html
+https://feeds.content.dowjones.io/public/rss/mw_topstories
+https://www.federalreserve.gov/feeds/press_all.xml
+https://www.ecb.europa.eu/rss/press.html
+https://cointelegraph.com/rss
+https://www.ansa.it/sito/notizie/economia/economia_rss.xml
+
+[POLITICA & GEOPOLITICA]
+https://feeds.bbci.co.uk/news/world/rss.xml
+https://www.aljazeera.com/xml/rss/all.xml
+https://www.politico.eu/feed/
+
+[SCIENZA & INNOVAZIONE]
+https://www.quantamagazine.org/feed/
+https://www.sciencedaily.com/rss/top/science.xml
+https://phys.org/rss-feed/
+https://spacenews.com/feed/
+https://www.nature.com/nature.rss
