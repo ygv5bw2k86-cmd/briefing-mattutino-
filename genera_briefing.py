@@ -11,42 +11,12 @@ import requests
 import markdown
 
 ORE_INDIETRO = 36
-MAX_PER_FEED = 8
+MAX_PER_FEED = 10
 MODELLI = ["gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash"]
 BROWSER = {"User-Agent": "Mozilla/5.0 (compatible; BriefingMattutino/1.0)"}
 GIORNI = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"]
 
-PROMPT = """Sei il mio analista personale. Oggi è {DATA}. Qui sotto trovi le notizie delle ultime {ORE} ore, raccolte da feed RSS e divise per area.
-
-Il mio obiettivo non è solo essere informato: voglio capire i meccanismi dietro ai fatti, imparare a investire partendo da zero e individuare opportunità per costruire progetti tecnologici o business.
-
-Scrivi il briefing in italiano con ESATTAMENTE queste 5 sezioni, come titoli di secondo livello (##):
-
-## 1. INTELLIGENZA ARTIFICIALE & TECNOLOGIA (Focus: Costruire)
-Nuovi modelli, aggiornamenti API, strumenti open-source, framework per agenti AI, breakthrough tech. Per ogni notizia: **COSA** è uscito e **COME** uno sviluppatore o creator può usarlo concretamente per costruire qualcosa oggi.
-
-## 2. ECONOMIA & INVESTIMENTI (Focus: Imparare e Capire i Mercati)
-Dati macroeconomici chiave (tassi, inflazione, PIL), movimenti rilevanti dei mercati (S&P 500, Nasdaq, tech stock, crypto/ETF), trimestrali importanti. REGOLA DIDATTICA: sto imparando a investire, quindi ogni volta che citi un concetto finanziario o un movimento di mercato aggiungi una riga "**[Spiegazione pratica]**" che spiega con parole semplici perché quella notizia fa salire o scendere i mercati, o come funziona lo strumento.
-
-## 3. POLITICA & GEOPOLITICA (Focus: Impatto Reale)
-Solo decisioni politiche, normative (AI Act, regolamentazioni tech, dazi, manovre economiche) o eventi geopolitici con impatto diretto su economia, mercati o settore tecnologico. Ignora gossip e polemiche sterili.
-
-## 4. SCIENZA & INNOVAZIONE (Focus: Futuro)
-Scoperte rilevanti in fisica, biotecnologie, energia, spazio o calcolo quantistico che possono cambiare le industrie nei prossimi 5-10 anni.
-
-## 5. IL CONSIGLIO OPERATIVO DEL GIORNO
-Esattamente 3 righe di sintesi: incrociando le notizie di oggi, un'idea di progetto (es. un agente AI da programmare), una competenza da approfondire o un trend da tenere d'occhio.
-
-REGOLE:
-- Stile pragmatico e diretto, zero introduzioni e zero chiusure. Elenchi puntati puliti e grassetti per i concetti chiave.
-- Usa SOLO le notizie e i dati forniti qui sotto. Non inventare numeri, date o fatti. Le righe [Spiegazione pratica] possono usare conoscenza generale, ma i dati citati devono venire dalle notizie.
-- Dopo ogni notizia cita la fonte con il link in formato Markdown: [Nome fonte](url).
-- Scegli le 3-6 notizie più importanti per sezione. Se per una sezione non c'è nulla di rilevante scrivi "Nessuna novità rilevante oggi."
-- Traduci tutto in italiano.
-
-NOTIZIE:
-{NOTIZIE}
-"""
+PROMPT = open("prompt.txt", encoding="utf-8").read()
 
 PAGINA = """<!DOCTYPE html>
 <html lang="it"><head><meta charset="utf-8">
@@ -101,7 +71,7 @@ def leggi_feed():
             if data and datetime(*data[:6], tzinfo=timezone.utc) < limite:
                 continue
             titolo = pulisci(voce.get("title", ""), 200)
-            sommario = pulisci(voce.get("summary", ""))
+            sommario = pulisci(voce.get("summary", ""), 450)
             sezioni[sezione].append(f"- [{fonte}] {titolo} | {sommario} | {voce.get('link', '')}")
             trovati += 1
             if trovati >= MAX_PER_FEED:
@@ -119,8 +89,8 @@ def chiedi_gemini(prompt, chiave):
                     url,
                     headers={"x-goog-api-key": chiave, "Content-Type": "application/json"},
                     json={"contents": [{"parts": [{"text": prompt}]}],
-                          "generationConfig": {"temperature": 0.3}},
-                    timeout=180,
+                          "generationConfig": {"temperature": 0.3, "maxOutputTokens": 24000}},
+                    timeout=240,
                 )
             except Exception as errore:
                 print(f"[{modello}] errore di rete: {errore}")
